@@ -1,0 +1,7 @@
+node_modules
+src/vendors
+*.map
+*.hbs.js
+*.coffee.js
+*.coffee.js.map
+*.min.js
