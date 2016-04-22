@@ -5,3 +5,4 @@ src/vendors
 *.coffee.js
 *.coffee.js.map
 *.min.js
+*.less.css

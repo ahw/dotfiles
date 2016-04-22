@@ -65,9 +65,17 @@ imap <leader>wq <esc>:wq<CR>
 " Quit all windows. Helpful esp. in Git Diff
 map <F2> <esc>:qall<CR>
 
+if &diff
+    colorscheme github
+endif
+
 " Toggle line wrapping.
 map <leader>w <esc>:set wrap!<CR>
-map <leader>e <esc>:set expandtab!<CR>
+map <leader>e <esc>:set expandtab<CR>
+map <leader>ne <esc>:set noexpandtab<CR>
+map <leader>l <esc>:set list<CR>
+map <leader>nl <esc>:set nolist<CR>
+map <leader>f <esc>:NERDTreeFind<CR>
 
 " Toggle cursorline
 map <leader>cl <esc>:set cursorline!<CR>
@@ -126,7 +134,7 @@ autocmd FileType html noremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 set fileencodings=ucs-bom,utf-8,sjis,default
 
-let g:vim_pbcopy_host = "mac-laptop"
+let g:vim_pbcopy_remote_cmd = "ssh mac-laptop pbcopy"
 
 command! -nargs=1 Ss let @/ = <q-args>
 
@@ -188,3 +196,7 @@ let coffee_compile_vert = 1 " open in vertical split
 " http://stackoverflow.com/questions/21346068/slow-performance-on-ctrlp-it-doesnt-work-to-ignore-some-folders
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_user_command = 'find %s -type f | egrep -v "\.kitchen|node_modules/|\.idea/|\.git/|\.cache/|.coffee.js$|js.map$|hbs.js$"'
+
+" Ignore stuff in NERDTree
+" http://stackoverflow.com/questions/5601749/how-to-filter-out-files-by-extension-in-nerdtree
+let NERDTreeIgnore = ['\~$', '.coffee.js$', '.map$', '.hbs.js$', '.less.css$']
