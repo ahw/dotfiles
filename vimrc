@@ -19,7 +19,7 @@ set expandtab      "Automatically turn TABs into 'tabstop' spaces
 set tabstop=4      "1 tab = 4 spaces
 set shiftwidth=4   "Shift operators move 4 spaces at a time
 set softtabstop=4  "Among other things, this causes <BS> to go back 4 spaces
-" set listchars+=tab:>-
+set listchars+=tab:\|.
 " set list
 
 set textwidth=76   "Exactly what it sounds like
@@ -76,6 +76,7 @@ map <leader>ne <esc>:set noexpandtab<CR>
 map <leader>l <esc>:set list<CR>
 map <leader>nl <esc>:set nolist<CR>
 map <leader>f <esc>:NERDTreeFind<CR>
+nnoremap <leader>d <esc>:bd<cr>
 
 " Toggle cursorline
 map <leader>cl <esc>:set cursorline!<CR>
@@ -102,7 +103,7 @@ au BufNewFile,BufRead *.hbs  set filetype=html
 hi clear Pmenu
 hi clear PmenuSel
 hi link Pmenu TabLineFill
-hi link PmenuSel ColorColumn
+hi link PmenuSel PanelHighlight
 hi clear Folded
 hi link Folded Conceal
 " term=standout cterm=bold ctermfg=8 ctermbg=1 guifg=White guibg=Red
